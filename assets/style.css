@@ -3,9 +3,24 @@
     box-sizing: border-box;
 }
 
+/*Header*/
+header {
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    padding: 1rem 0 ;
+}
 
+#headerTitle {
+    text-align: center;
+    flex: 6;
+}
+#addEvent {
+    float: right;
+    flex: 1;
+}
 
-
+/*Calendar*/
 .calendar {
     display: flex;
     flex-direction: column;
