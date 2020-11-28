@@ -19,3 +19,17 @@ header {
     float: right;
     flex: 1;
 }
+
+/*Calendar*/
+.calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.calendar__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
