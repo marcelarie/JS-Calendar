@@ -2,3 +2,19 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+
+
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+.calendar__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
