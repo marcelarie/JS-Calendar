@@ -57,6 +57,7 @@ header {
 }
 .create-event__container > form > * {
     margin: .5em auto;
+    outline: none;
 }
 .create-event__container > form > input {
     padding-left: .25em;
@@ -82,16 +83,22 @@ header {
 .btn-form:hover {
     background: #666;
 }
-.icon-close {
+.close {
     position: absolute;
-    top: .5em;
-    right: .5em;
+    top: 1em;
+    right: 1em;
     color: #333;
     cursor: pointer;
     transition: color 200ms ease-in-out;
 }
-.icon-close:hover {
-    color: #666;
+.close .icon-cancel {
+    display: none;
+}
+.close:hover .icon-cancel {
+    display: block;
+}
+.close:hover .icon-close {
+    display: none;
 }
 /*Calendar*/
 .calendar {

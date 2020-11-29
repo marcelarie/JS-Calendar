@@ -18,31 +18,39 @@
     <section id="create-new-event" class="create-event hide">
         <div class="create-event__container">
             <h2>New Event</h2>
-            <i id="close-icon" class="material-icons icon-close">close</i>
-            <form action="">
+            <div class="close">
+                <i class="material-icons icon-close">close</i>
+                <i id="close-icon" class="material-icons icon-cancel">cancel</i>
+            </div>
+            <form action="/">
                 <label for="title">Title:</label>
                 <input type="text" id="title">
                 <br>
                 <label for="initial-date">Initial Date:</label>
                 <input type="date" id="inital-date">
                 <br>
-                <input type="checkbox" id="end-date">
-                <label for="end-date">End Date</label>
+                <input type="checkbox" id="end-date-checkbox">
+                <label for="end-date-checkbox">End Date</label>
                 <br>
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date">
+                <span id="end-date-option" class="hide">
+                    <label for="end-date">End Date:</label>
+                    <input type="date" id="end-date">
+                </span>
                 <br>
-                <input type="checkbox" id="reminder">
-                <label for="reminder">Remind me when this event expire</label>
+                <input type="checkbox" id="reminder-checkbox">
+                <label for="reminder-checkbox">Remind me when this event expire</label>
                 <br>
-                <label for="alert-time-before">Time:</label>
-                <select name="" id="alert-time-before">
-                    <option value="5">5 minutes before</option>
-                    <option value="10">10 minutes before</option>
-                    <option value="15">15 minutes before</option>
-                    <option value="30">30 minutes before</option>
-                    <option value="60">1 hour before</option>
-                </select>
+                <span id="reminder-option" class="hide">
+                    <label for="alert-time-before">Time:</label>
+                    <select name="" id="alert-time-before">
+                        <option value="5">5 minutes before</option>
+                        <option value="10">10 minutes before</option>
+                        <option value="15">15 minutes before</option>
+                        <option value="30">30 minutes before</option>
+                        <option value="60">1 hour before</option>
+                    </select>
+                </span>
+                <br>
                 <br>
                 <label for="description" class="description-label">Description</label>
                 <textarea name="description" id="description" cols="30" rows="10"></textarea>
