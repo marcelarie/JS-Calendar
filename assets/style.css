@@ -108,12 +108,13 @@ header {
     border: 2px solid white;
     font-size: 1.1rem;
     position: relative;
+    cursor: pointer;
 }
 .calendar__event p {
     position: absolute;
-      top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .calendar__event__time {
     font-weight: bold;
