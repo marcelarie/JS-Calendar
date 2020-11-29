@@ -16,7 +16,7 @@
         <i id="add-event" class="material-icons">add_circle</i>
     </header>
     <section id="create-new-event" class="create-event hide">
-        <div class="create-event__container">
+        <div id="create-event-child" class="create-event__container">
             <h2>New Event</h2>
             <div class="close">
                 <i class="material-icons icon-close">close</i>
@@ -24,17 +24,17 @@
             </div>
             <form action="/">
                 <label for="title">Title:</label>
-                <input type="text" id="title">
+                <input type="text" id="title" maxlength="60" required>
                 <br>
                 <label for="initial-date">Initial Date:</label>
-                <input type="date" id="inital-date">
+                <input type="datetime-local" id="inital-date" required>
                 <br>
                 <input type="checkbox" id="end-date-checkbox">
                 <label for="end-date-checkbox">End Date</label>
                 <br>
                 <span id="end-date-option" class="hide">
                     <label for="end-date">End Date:</label>
-                    <input type="date" id="end-date">
+                    <input type="datetime-local" id="end-date">
                 </span>
                 <br>
                 <input type="checkbox" id="reminder-checkbox">
@@ -53,13 +53,14 @@
                 <br>
                 <br>
                 <label for="description" class="description-label">Description</label>
-                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" maxlength="500"></textarea>
                 <br>
                 <label for="type-event">Event Type:</label>
                 <select name="Event Type" id="type-event">
                     <option value="meeting">Meeting</option>
                     <option value="personal">Personal</option>
                     <option value="study">Study</option>
+                    <option value="other">Other</option>
                 </select>
                 <br>
                 <div>
@@ -67,7 +68,7 @@
                     <button id="create-event-btn" class="btn-form">Create</button>
                 </div>
             </form>
-        </div>
+        </divnid>
     </section>
     <main>
         <div class="calendar">
