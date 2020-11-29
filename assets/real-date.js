@@ -17,7 +17,7 @@ function showActualTitle() {
 
 // Print the days of the month on the body grid.
 function printDaysMonth() {
-    for (day = 1; day < numberOfDaysMonth + 1; day++) {
+    for (day = 1; day < numberOfDaysMonth; day++) {
         let dayDiv = document.createElement('div');
         dayDiv.classList.add('calendar__days__number')
         dayDiv.textContent = day;
