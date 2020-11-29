@@ -33,3 +33,10 @@ header {
     justify-content: center;
     align-items: center;
 }
+
+/*Calendar body grid*/
+
+#calendar__days__week, #calendar__days__number {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
