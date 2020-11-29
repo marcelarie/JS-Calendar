@@ -95,6 +95,13 @@ header {
     border: 1px solid lightgray;
     width: 100%;
     height: 16.65vh;
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.calendar__days__number__num {
+}
+.calendar__event {
+    background-color: lightgreen;
+    padding: 1rem;
+    border-radius: 0.2rem;
 }
