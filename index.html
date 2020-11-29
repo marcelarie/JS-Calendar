@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- MATERIAL ICON -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -10,15 +9,47 @@
     <meta charset="UTF-8">
     <title>Js Calendar</title>
 </head>
-
 <body>
     <header>
         <h1 id="headerTitle">JS Calendar</h1>
         <i id="add-event" class="material-icons">add_circle</i>
     </header>
-    <div class="new-event">
-        
-    </div>
+    <section id="create-new-event" class="create-event">
+        <div class="create-event__container">
+            <h2>New Event</h2>
+            <i id="close-icon" class="material-icons icon-close">close</i>
+            <form action="">
+                <label for="title">Title:</label>
+                <input type="text" id="title">
+                <label for="initial-date">Initial Date:</label>
+                <input type="date" id="inital-date">
+                <input type="checkbox" id="end-date">
+                <label for="end-date">End Date</label>
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                <input type="checkbox" id="reminder">
+                <label for="reminder">Remind me when this event expire</label>
+                <label for="alert-time-before">Time:</label>
+                <select name="" id="alert-time-before">
+                    <option value="5">5 minutes before</option>
+                    <option value="10">10 minutes before</option>
+                    <option value="15">15 minutes before</option>
+                    <option value="30">30 minutes before</option>
+                    <option value="60">1 hour before</option>
+                </select>
+                <label for="description">description</label>
+                <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                <label for="type-event">Event Type:</label>
+                <select name="Event Type" id="type-event">
+                    <option value="meeting">Meeting</option>
+                    <option value="personal">Personal</option>
+                    <option value="study">Study</option>
+                </select>
+                <button id="cancel-event-btn" class="btn-form">Cancel</button>
+                <button id="create-event-btn" class="btn-form">Create</button>
+            </form>
+        </div>
+    </section>
     <main>
         <div class="calendar">
             <div class="calendar__title">
@@ -30,5 +61,4 @@
         </div>
     </main>
 </body>
-
 </html>

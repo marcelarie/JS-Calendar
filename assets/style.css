@@ -10,7 +10,6 @@ header {
     background-color: #ddd;
     padding: 1em;
 }
-
 #headerTitle {
     text-align: center;
     flex: 6;
@@ -24,7 +23,35 @@ header {
 .material-icons:hover {
     color: #444;
 }
-
+/*Create-event-form*/
+.create-event {
+    width: 100vw;
+    height: 100vh;
+    background: #bbb;
+}
+.create-event__container {
+    display: grid;
+    /* place-items: center; */
+    width: 80vh;
+    height: 80vh;
+    margin: auto;
+    background: #f2f2f2;
+    position: relative;
+}
+.create-event__container > h2 {
+    margin: 1em auto;
+}
+.icon-close {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+}
+.create-event__form > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /*Calendar*/
 .calendar {
     display: flex;
