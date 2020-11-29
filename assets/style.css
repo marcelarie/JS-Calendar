@@ -15,17 +15,50 @@ header {
     font-family: 'Mukta', sans-serif;
     font-size: 1.5rem;
     color: whitesmoke;
+    align-items: center;
 }
-
 #headerTitle {
     text-align: center;
     flex: 6;
 }
-#addEvent {
-    float: right;
-    flex: 1;
+.material-icons {
+    font-size: 36px;
+    color: #333;
+    cursor: pointer;
+    transition: transform 200ms ease-in-out;
 }
-
+.material-icons:hover {
+    color: #444;
+}
+/*Create-event-form*/
+.create-event {
+    width: 100vw;
+    height: 100vh;
+    background: #bbb;
+}
+.create-event__container {
+    display: grid;
+    /* place-items: center; */
+    width: 80vh;
+    height: 80vh;
+    margin: auto;
+    background: #f2f2f2;
+    position: relative;
+}
+.create-event__container > h2 {
+    margin: 1em auto;
+}
+.icon-close {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+}
+.create-event__form > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /*Calendar*/
 .calendar {
     display: flex;
