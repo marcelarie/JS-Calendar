@@ -5,15 +5,18 @@
 /*GFONTS*/
 /*font-family: 'Mukta', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
-
+/* GENERAL */
+.hide {
+    display: none;
+}
 /*Header*/
 header {
     display: flex;
     flex-direction: row;
     background-color: grey;
-    padding: 1rem 0 ;
+    padding: 1em;
     font-family: 'Mukta', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: whitesmoke;
     align-items: center;
 }
@@ -30,34 +33,72 @@ header {
 .material-icons:hover {
     color: #444;
 }
-/*Create-event-form*/
+/*Create-Event-Form*/
 .create-event {
     width: 100vw;
     height: 100vh;
-    background: #bbb;
+    background: #333;
+    opacity: .9;
+    position: absolute;
+    z-index: 1;
 }
 .create-event__container {
-    display: grid;
-    /* place-items: center; */
-    width: 80vh;
-    height: 80vh;
-    margin: auto;
-    background: #f2f2f2;
+    margin: 3em 5em;
+    padding: 1em;
+    background: #fff;
+    opacity: 1;
     position: relative;
-}
-.create-event__container > h2 {
-    margin: 1em auto;
-}
-.icon-close {
-    position: absolute;
-    top: .5em;
-    right: .5em;
-}
-.create-event__form > form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+}
+.create-event__container > h2 {
+    margin: .5em auto;
+}
+.create-event__container > form > * {
+    margin: .5em auto;
+    outline: none;
+}
+.create-event__container > form > input {
+    padding-left: .25em;
+}
+.create-event__container > form > div {
+    display: flex;
+    justify-content: flex-end;
+}
+.create-event__container > form > .description-label {
+    vertical-align: top;
+}
+.btn-form {
+    width: 100px;
+    height: 35px;
+    margin-left: .5em;
+    background: #333;
+    color: #f2f2f2;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 200ms ease-in-out;
+}
+.btn-form:hover {
+    background: #666;
+}
+.close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: #333;
+    cursor: pointer;
+    transition: color 200ms ease-in-out;
+}
+.close .icon-cancel {
+    display: none;
+}
+.close:hover .icon-cancel {
+    display: block;
+}
+.close:hover .icon-close {
+    display: none;
 }
 /*Calendar*/
 .calendar {
@@ -95,6 +136,27 @@ header {
     border: 1px solid lightgray;
     width: 100%;
     height: 16.65vh;
-    font-size: 2rem;
-    font-weight: 600;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
+.calendar__days__number__num {
+}
+.calendar__event {
+    background-color: lightgreen;
+    border-radius: 0.2rem;
+    height: 100%;
+    border: 2px solid white;
+    font-size: 1.1rem;
+    position: relative;
+    cursor: pointer;
+}
+.calendar__event p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.calendar__event__time {
+    font-weight: bold;
 }
