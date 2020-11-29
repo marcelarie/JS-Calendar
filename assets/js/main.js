@@ -28,15 +28,7 @@ createNewEventBtn.addEventListener('click', () => {
       createNewEventForm.classList.add('hide');
     }
   })
-  createNewEventForm.addEventListener('click', (e) => {
-    if (e.target !== this.createNewEventChild.parentNode) {
-      createNewEventForm.classList.add('hide');
-    }
-  })
 })
-
-
-
 
 closeFormBtn.addEventListener('click', () => {
   createNewEventForm.classList.add('hide');
