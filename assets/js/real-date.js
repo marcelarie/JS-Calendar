@@ -7,7 +7,7 @@ const numberOfDaysMonth = new Date(actualYear, actualMonth, 0).getDate();
 const firstDayOfMonth = new Date(actualYear, actualMonth - 1, 1);
 const firstDayOfNextMonth = new Date(actualYear, actualMonth, 1);
 const lastDayPastMonth = new Date(actualYear, pastMonth, 0).getDate();
-const howManyPastDays = 0;
+let howManyPastDays = 0;
 const firstDayOfMonthNum = firstDayOfMonth.getDay();
 // const weekArray = {0: 'Sunday', 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday'}
 
