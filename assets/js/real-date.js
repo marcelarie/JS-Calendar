@@ -1,16 +1,21 @@
 const date = new Date();
 const actualYear = date.getFullYear();
 const actualMonth = date.getMonth() + 1;
+const pastMonth = date.getMonth();
 const monthsArray = {01: 'January', 02: 'February', 03: 'March', 04: 'April', 05: 'May', 06: 'June', 07: 'July', 08: 'August', 09: 'September', 10: 'October', 11: 'November', 12: 'December', }
 const numberOfDaysMonth = new Date(actualYear, actualMonth + 1, 0).getDate();
 const firstDayOfMonth = new Date(actualYear, actualMonth - 1, 1);
-const firstDayOfMonthNum = firstDayOfMonth.getDay();
-const weekArray = {0: 'Sunday', 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday'}
+const firstDayOfNextMonth = new Date(actualYear, actualMonth, 1);
+const lastDayPastMonth = new Date(actualYear, pastMonth, 0).getDate();
+// const firstDayOfMonthNum = firstDayOfMonth.getDay();
+const firstDayOfMonthNum = 3;
+// const weekArray = {0: 'Sunday', 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday'}
 
 // HTML Variables.
 const htmlYear = document.getElementById('calendar__title__year');
 const htmlMonth = document.getElementById('calendar__title__month');
 const calendarDaysDiv = document.getElementById('calendar__days__number')
+const calendarDaysDivPast = document.querySelector('.calendar__days__number__past')
 
 // Show the actual year on the month title.
 function showActualTitle() {
@@ -28,13 +33,47 @@ function printDaysMonth() {
     }
 }
 
+
 // Print the days of the past/future month on the body grid.
 function printDaysMonthPast(a) {
     for (i = 0; i < a; i++) {
         let dayDivPast = document.createElement('div');
-        dayDivPast.classList.add('calendar__days__number__past')
+        dayDivPast.classList.add(`calendar__days__number__past`)
+        dayDivPast.classList.add(`past__month__days${i}`)
+        switch (a) {
+            case 1:
+            dayDivPast.textContent = lastDayPastMonth;
+            break;
+            case 2:
+            dayDivPast.textContent = lastDayPastMonth - 1;
+            if (dayDivPast.classList.contains('past__month__days1')) {
+                dayDivPast.textContent = lastDayPastMonth;
+            }
+            break;
+            case 3:
+            dayDivPast.textContent = lastDayPastMonth -2;
+            if (dayDivPast.classList.contains('past__month__days1')) {
+                dayDivPast.textContent = lastDayPastMonth -1 ;
+            } else if (dayDivPast.classList.contains('past__month__days2')) {
+                dayDivPast.textContent = lastDayPastMonth;
+                }
+            break;
+            case 4:
+            dayDivPast.textContent = lastDayPastMonth - 3;
+            break;
+            case 5:
+            dayDivPast.textContent = lastDayPastMonth - 4;
+            break;
+            case 6:
+            dayDivPast.textContent = lastDayPastMonth - 5;
+            break;
+            case 7:
+            dayDivPast.textContent = lastDayPastMonth - 6;
+            break;
+        }
         calendarDaysDiv.appendChild(dayDivPast)
     }
+    
 }
 
 // Show start day of the month.
