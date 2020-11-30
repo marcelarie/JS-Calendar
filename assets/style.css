@@ -149,6 +149,15 @@ header {
     flex-direction: column;
     background-color:darkgray;
 }
+.calendar__days__number__next {
+    border: 1px solid lightgray;
+    width: 100%;
+    height: 16.65vh;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    background-color:darkgray;
+}
 .calendar__days__number__num {
 }
 .calendar__event {
