@@ -37,13 +37,12 @@ header {
 .create-event {
     width: 100vw;
     height: 100vh;
-    background: #333;
-    opacity: .9;
+    background: rgba(51,51,51,.8);
     position: absolute;
     z-index: 1;
 }
 .create-event__container {
-    margin: 3em 5em;
+    margin: 5em;
     padding: 1em;
     background: #fff;
     opacity: 1;
