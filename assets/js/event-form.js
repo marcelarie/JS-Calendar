@@ -19,6 +19,8 @@ const cancelEventBtn = document.getElementById('cancel-event-btn');
 // VARIABLES
 let newEvent = {};
 let eventList = [];
+let expiredEventList = [];
+let todaysEventList = [];
 
 // EVENT LISTENERS
 createNewEventBtn.addEventListener('click', () => {
@@ -29,10 +31,16 @@ createNewEventBtn.addEventListener('click', () => {
   createNewEventForm.addEventListener('click', (e) => {
     if (e.target.id == 'create-new-event') createNewEventForm.classList.add('hide');
   })
+  closeFormBtn.addEventListener('click', () => {
+    createNewEventForm.classList.add('hide');
+  })
+  cancelEventBtn.addEventListener('click', () => {
+    createNewEventForm.classList.add('hide');
+  })
 })
 
-closeFormBtn.addEventListener('click', () => {
-  createNewEventForm.classList.add('hide');
+document.getElementById('event-form').addEventListener('change', () => {
+  if (eventTitle.value !== '' && eventIntialDate.value !== '') saveEventBtn.disabled = false;
 })
 
 eventEndDateCheckbox.addEventListener('change', () => {
@@ -43,11 +51,8 @@ reminderCheckbox.addEventListener('change', () => {
   reminderDate.classList.toggle('hide');
 })
 
-cancelEventBtn.addEventListener('click', () => {
-  createNewEventForm.classList.add('hide');
-})
-
-saveEventBtn.addEventListener('click', () => {
+saveEventBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   newEvent = {
     title: eventTitle.value,
     initialDate: eventIntialDate.value,
@@ -56,5 +61,11 @@ saveEventBtn.addEventListener('click', () => {
     description: eventDescription.value,
     type: eventType.value
   }
-  eventList.push(newEvent);
+  new Date(newEvent.initialDate) < new Date() ? expiredEventList.push(newEvent) : eventList.push(newEvent);
+  createNewEventForm.classList.add('hide');
 })
+
+
+
+
+

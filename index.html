@@ -17,12 +17,12 @@
                 <i class="material-icons icon-close">close</i>
                 <i id="close-icon" class="material-icons icon-cancel">cancel</i>
             </div>
-            <form action="/">
+            <form action="/" id="event-form">
                 <label for="title">Title:</label>
-                <input type="text" id="title" maxlength="60" required>
+                <input type="text" id="title" maxlength="60">
                 <br>
                 <label for="initial-date">Initial Date:</label>
-                <input type="datetime-local" id="inital-date" required>
+                <input type="datetime-local" id="inital-date">
                 <br>
                 <input type="checkbox" id="end-date-checkbox">
                 <label for="end-date-checkbox">End Date</label>
@@ -38,6 +38,7 @@
                 <span id="reminder-option" class="hide">
                     <label for="alert-time-before">Time:</label>
                     <select name="" id="alert-time-before">
+                        <option value=""></option>
                         <option value="5">5 minutes before</option>
                         <option value="10">10 minutes before</option>
                         <option value="15">15 minutes before</option>
@@ -60,7 +61,7 @@
                 <br>
                 <div>
                     <button id="cancel-event-btn" class="btn-form" type="reset">Cancel</button>
-                    <button id="create-event-btn" class="btn-form" type="submit">Create</button>
+                    <button id="create-event-btn" class="btn-form" type="submit" disabled>Create</button>
                 </div>
             </form>
         </divnid>
@@ -94,6 +95,6 @@
         </div>
     </main>
     <script src="assets/js/real-date.js" type="text/javascript"></script>
-    <script src="assets/js/main.js" type="text/javascript"></script>
+    <script src="assets/js/event-form.js" type="text/javascript"></script>
 </body>
 </html>
