@@ -28,16 +28,18 @@ function printDaysMonth() {
         dayDiv.textContent = day;
         calendarDaysDiv.appendChild(dayDiv);
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
-        for (let currentEvent = 0; currentEvent < currentEvents.length; currentEvent++) {
-            //   v      year of the event   v 
-            if (currentEvents[currentEvent].initialDate.substr(0, 4) == actualYear) {
-                //   v         month of the event         v 
-                if (currentEvents[currentEvent].initialDate.substr(5).substr(0, 2) == actualMonth) {
-                    if (day === parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2))) {
-                        let div = document.createElement('div');
-                        div.classList.add('calendar__event');
-                        div.textContent = currentEvents[currentEvent].title;
-                        dayDiv.appendChild(div)
+        if (currentEvents) {
+            for (let currentEvent = 0; currentEvent < currentEvents.length; currentEvent++) {
+                //   v      year of the event   v 
+                if (currentEvents[currentEvent].initialDate.substr(0, 4) == actualYear) {
+                    //   v         month of the event         v 
+                    if (currentEvents[currentEvent].initialDate.substr(5).substr(0, 2) == actualMonth) {
+                        if (day === parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2))) {
+                            let div = document.createElement('div');
+                            div.classList.add('calendar__event');
+                            div.textContent = currentEvents[currentEvent].title;
+                            dayDiv.appendChild(div)
+                        }
                     }
                     printDaysMonthNext();
                 }
