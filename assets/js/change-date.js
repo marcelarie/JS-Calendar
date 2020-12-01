@@ -11,10 +11,12 @@ rightArrow.addEventListener('click', () => {
     changeNextMonth();
 });
 
+// resets calendar body html
 function removeDays() {
     calendarDaysDiv.innerHTML = '';
     howManyPastDays = 0;
 }
+// rest a value to the actual month/year when needed
 function changePastMonth() {
     if ( actualMonth <= 1 ) {
         actualMonth = 12;

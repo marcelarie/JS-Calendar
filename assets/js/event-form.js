@@ -52,7 +52,6 @@ reminderCheckbox.addEventListener('change', () => {
 saveEventBtn.addEventListener('click', (e) => {
   e.preventDefault();
   createNewEvent();
-
 })
 
 // FUNCTIONS
@@ -76,6 +75,7 @@ function createNewEvent() {
   reminderDateValue.value = '';
   eventDescription.value = '';
   eventType.value = '';
+  saveEventBtn.disabled = true;
 
   createNewEventForm.classList.add('hide');
 }
