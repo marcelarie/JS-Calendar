@@ -19,6 +19,8 @@ const cancelEventBtn = document.getElementById('cancel-event-btn');
 // VARIABLES
 let newEvent = {};
 let eventList = [];
+let expiredEventList = [];
+let todaysEventList = [];
 
 // EVENT LISTENERS
 createNewEventBtn.addEventListener('click', () => {
@@ -59,6 +61,11 @@ saveEventBtn.addEventListener('click', (e) => {
     description: eventDescription.value,
     type: eventType.value
   }
-  eventList.push(newEvent);
-  console.log(eventList);
+  new Date(newEvent.initialDate) < new Date() ? expiredEventList.push(newEvent) : eventList.push(newEvent);
+  createNewEventForm.classList.add('hide');
 })
+
+
+
+
+
