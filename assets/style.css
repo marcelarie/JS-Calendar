@@ -14,7 +14,7 @@ header {
     display: flex;
     flex-direction: row;
     background-color: grey;
-    padding: 1em;
+    padding: 0.5em;
     font-family: 'Mukta', sans-serif;
     font-size: 1.2rem;
     color: whitesmoke;
@@ -114,18 +114,28 @@ header {
 }
 .calendar__title {
     display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 2.5rem;
     background-color: darkgrey;
     color: white;
     width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+#arrow-left {
+    margin-left: 0.5em;
+    font-size: 50px;
+    color: whitesmoke;
+}
+#arrow-right {
+    margin-right: 0.5em;
+    font-size: 50px;
+    color: whitesmoke;
 }
 
 /*Calendar body grid*/
 .calendar__body {
     width: 100%;
-    height: 90vh;
+    height: 85vh;
 }
 #calendar__days__week, #calendar__days__number {
     display: grid;
@@ -133,7 +143,7 @@ header {
     text-align: center;
 }
 .calendar__days__week {
-    font-size: 2rem;
+    font-size: 1.5rem;
     border: 1.5px solid lightgray;
 }
 .calendar__days__number {
@@ -141,10 +151,12 @@ header {
     width: 100%;
     height: 16.65vh;
     font-weight: 500;
+    font-size: 1.5em;
     display: flex;
     flex-direction: column;
 }
 .calendar__days__number__past {
+    font-size: 1.5em;
     border: 1px solid lightgray;
     width: 100%;
     height: 16.65vh;
@@ -154,6 +166,7 @@ header {
     background-color:darkgray;
 }
 .calendar__days__number__next {
+    font-size: 1.5em;
     border: 1px solid lightgray;
     width: 100%;
     height: 16.65vh;
