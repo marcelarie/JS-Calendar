@@ -1,3 +1,36 @@
+:root {
+    /*gruvbox*/
+    --gruvbox-background: #282828;
+    --gruvbox-background-light: #fbf1c7;
+    --gruvbox-red : #cc241d;
+    --gruvbox-green : #98971a;
+    --gruvbox-yellow : #d79921;
+    --gruvbox-blue: #458588;
+    --gruvbox-purple: #b16286;
+    --gruvbox-aqua: #689d6a;
+    --gruvbox-gray: #a89984;
+    --gruvbox-light-red : #fb4934;
+    --gruvbox-light-green : #b8bb26;
+    --gruvbox-light-yellow : #fabd2f;
+    --gruvbox-light-blue: #83a598;
+    --gruvbox-light-purple: #d3869b;
+    --gruvbox-light-aqua: #8ec07c;
+    --gruvbox-fg: #ebdbb2;
+    /*dracula-dark*/
+    --dracula-background: #282a36;
+    --dracula-current-line: #44475a;
+    --dracula-selection: #44475a;
+    --dracula-foreground: #f8f8f2;
+    --dracula-comment: #6272a4;
+    --dracula-cyan: #8be9fd;
+    --dracula-green: #50fa7b;
+    --dracula-orange: #ffb86c;
+    --dracula-pink: #ff79c6;
+    --dracula-purple: #bd93f9;
+    --dracula-red: #ff5555;
+    --dracula-yellow: #f1fa8c;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;
