@@ -27,9 +27,25 @@ function printDaysMonth() {
         dayDiv.classList.add('calendar__days__number')
         dayDiv.textContent = day;
         calendarDaysDiv.appendChild(dayDiv);
+        let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
+        for (let currentEvent = 0; currentEvent < currentEvents.length; currentEvent++) {
+            //   v      year of the event   v 
+            if (currentEvents[currentEvent].initialDate.substr(0, 4) == actualYear) {
+                //   v         month of the event         v 
+                if (currentEvents[currentEvent].initialDate.substr(5).substr(0, 2) == actualMonth) {
+                    if (day === parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2))) {
+                        let div = document.createElement('div');
+                        div.classList.add('calendar__event');
+                        div.textContent = currentEvents[currentEvent].title;
+                        dayDiv.appendChild(div)
+                    }
+                    printDaysMonthNext();
+                }
+            }
+        }
     }
-    printDaysMonthNext();
 }
+// see if are events for the div
 
 // Print the days of the past/future month on the body grid.
 function printDaysMonthPast(a) {
@@ -40,85 +56,85 @@ function printDaysMonthPast(a) {
         dayDivPast.classList.add(`past__month__days${i}`) // creates a second class to differentiate each div
         switch (a) {
             case 1:
-            dayDivPast.textContent = lastDayPastMonth;
-            howManyPastDays++;
-            break;
+                dayDivPast.textContent = lastDayPastMonth;
+                howManyPastDays++;
+                break;
             case 2:
-            dayDivPast.textContent = lastDayPastMonth - 1; // prints first the smaller number from left to right
-            if (dayDivPast.classList.contains('past__month__days1')) {
-                dayDivPast.textContent = lastDayPastMonth;
-            }
-            howManyPastDays++;
-            break;
-            case 3:
-            dayDivPast.textContent = lastDayPastMonth - 2;
-            if (dayDivPast.classList.contains('past__month__days1')) {
-                dayDivPast.textContent = lastDayPastMonth - 1 ;
-            } else if (dayDivPast.classList.contains('past__month__days2')) {
-                dayDivPast.textContent = lastDayPastMonth;
+                dayDivPast.textContent = lastDayPastMonth - 1; // prints first the smaller number from left to right
+                if (dayDivPast.classList.contains('past__month__days1')) {
+                    dayDivPast.textContent = lastDayPastMonth;
                 }
-            howManyPastDays++;
-            break;
+                howManyPastDays++;
+                break;
+            case 3:
+                dayDivPast.textContent = lastDayPastMonth - 2;
+                if (dayDivPast.classList.contains('past__month__days1')) {
+                    dayDivPast.textContent = lastDayPastMonth - 1;
+                } else if (dayDivPast.classList.contains('past__month__days2')) {
+                    dayDivPast.textContent = lastDayPastMonth;
+                }
+                howManyPastDays++;
+                break;
             case 4:
-            dayDivPast.textContent = lastDayPastMonth - 3;
-            if (dayDivPast.classList.contains('past__month__days1')) {
-                dayDivPast.textContent = lastDayPastMonth - 2 ;
-            } else if (dayDivPast.classList.contains('past__month__days2')) {
-                dayDivPast.textContent = lastDayPastMonth - 1;
+                dayDivPast.textContent = lastDayPastMonth - 3;
+                if (dayDivPast.classList.contains('past__month__days1')) {
+                    dayDivPast.textContent = lastDayPastMonth - 2;
+                } else if (dayDivPast.classList.contains('past__month__days2')) {
+                    dayDivPast.textContent = lastDayPastMonth - 1;
                 } else if (dayDivPast.classList.contains('past__month__days3')) {
                     dayDivPast.textContent = lastDayPastMonth;
                 }
-            howManyPastDays++;
-            break;
+                howManyPastDays++;
+                break;
             case 5:
-            dayDivPast.textContent = lastDayPastMonth - 4;
-            if (dayDivPast.classList.contains('past__month__days1')) {
-                dayDivPast.textContent = lastDayPastMonth - 3;
-            } else if (dayDivPast.classList.contains('past__month__days2')) {
-                dayDivPast.textContent = lastDayPastMonth - 2 ;
+                dayDivPast.textContent = lastDayPastMonth - 4;
+                if (dayDivPast.classList.contains('past__month__days1')) {
+                    dayDivPast.textContent = lastDayPastMonth - 3;
+                } else if (dayDivPast.classList.contains('past__month__days2')) {
+                    dayDivPast.textContent = lastDayPastMonth - 2;
                 } else if (dayDivPast.classList.contains('past__month__days3')) {
                     dayDivPast.textContent = lastDayPastMonth - 1;
-                    } else if (dayDivPast.classList.contains('past__month__days4')) {
-                        dayDivPast.textContent = lastDayPastMonth;
-                    }
-            howManyPastDays++;
-            break;
+                } else if (dayDivPast.classList.contains('past__month__days4')) {
+                    dayDivPast.textContent = lastDayPastMonth;
+                }
+                howManyPastDays++;
+                break;
             case 6:
-            dayDivPast.textContent = lastDayPastMonth - 5;
-            if (dayDivPast.classList.contains('past__month__days1')) {
-                dayDivPast.textContent = lastDayPastMonth - 4;
-            } else if (dayDivPast.classList.contains('past__month__days2')) {
-                dayDivPast.textContent = lastDayPastMonth - 3 ;
+                dayDivPast.textContent = lastDayPastMonth - 5;
+                if (dayDivPast.classList.contains('past__month__days1')) {
+                    dayDivPast.textContent = lastDayPastMonth - 4;
+                } else if (dayDivPast.classList.contains('past__month__days2')) {
+                    dayDivPast.textContent = lastDayPastMonth - 3;
                 } else if (dayDivPast.classList.contains('past__month__days3')) {
                     dayDivPast.textContent = lastDayPastMonth - 2;
-                    } else if (dayDivPast.classList.contains('past__month__days4')) {
-                        dayDivPast.textContent = lastDayPastMonth - 1;
-                    } else if (dayDivPast.classList.contains('past__month__days5')) {
-                        dayDivPast.textContent = lastDayPastMonth;
-                    }
-            howManyPastDays++;
-            break;
+                } else if (dayDivPast.classList.contains('past__month__days4')) {
+                    dayDivPast.textContent = lastDayPastMonth - 1;
+                } else if (dayDivPast.classList.contains('past__month__days5')) {
+                    dayDivPast.textContent = lastDayPastMonth;
+                }
+                howManyPastDays++;
+                break;
             case 7:
-            dayDivPast.textContent = lastDayPastMonth - 6;
-            if (dayDivPast.classList.contains('past__month__days1')) {
-                dayDivPast.textContent = lastDayPastMonth - 5;
-            } else if (dayDivPast.classList.contains('past__month__days2')) {
-                dayDivPast.textContent = lastDayPastMonth - 4 ;
+                dayDivPast.textContent = lastDayPastMonth - 6;
+                if (dayDivPast.classList.contains('past__month__days1')) {
+                    dayDivPast.textContent = lastDayPastMonth - 5;
+                } else if (dayDivPast.classList.contains('past__month__days2')) {
+                    dayDivPast.textContent = lastDayPastMonth - 4;
                 } else if (dayDivPast.classList.contains('past__month__days3')) {
                     dayDivPast.textContent = lastDayPastMonth - 3;
-                    } else if (dayDivPast.classList.contains('past__month__days4')) {
-                        dayDivPast.textContent = lastDayPastMonth - 2;
-                    } else if (dayDivPast.classList.contains('past__month__days5')) {
-                        dayDivPast.textContent = lastDayPastMonth - 1;
-                    } else if (dayDivPast.classList.contains('past__month__days6')) {
-                        dayDivPast.textContent = lastDayPastMonth;
-                    }
-            howManyPastDays++;
-            break;
+                } else if (dayDivPast.classList.contains('past__month__days4')) {
+                    dayDivPast.textContent = lastDayPastMonth - 2;
+                } else if (dayDivPast.classList.contains('past__month__days5')) {
+                    dayDivPast.textContent = lastDayPastMonth - 1;
+                } else if (dayDivPast.classList.contains('past__month__days6')) {
+                    dayDivPast.textContent = lastDayPastMonth;
+                }
+                howManyPastDays++;
+                break;
         }
         calendarDaysDiv.appendChild(dayDivPast)
     }
-    
+
 }
 
 
@@ -152,10 +168,10 @@ function endDayMonth() {
     printDaysMonthNext(35 - numberOfDaysMonth - howManyPastDays);
 }
 function printDaysMonthNext(a) {
-    for ( let i = 0; i < a; i++) {
+    for (let i = 0; i < a; i++) {
         let dayDivNext = document.createElement('div');
         dayDivNext.classList.add(`calendar__days__number__next`)
-        dayDivNext.textContent = i +1;
+        dayDivNext.textContent = i + 1;
         calendarDaysDiv.appendChild(dayDivNext);
     }
 }
