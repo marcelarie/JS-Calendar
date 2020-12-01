@@ -18,9 +18,7 @@ const cancelEventBtn = document.getElementById('cancel-event-btn');
 
 // VARIABLES
 let newEvent = {};
-let eventList = [];
-let expiredEventList = [];
-let todaysEventList = [];
+let eventList = JSON.parse(localStorage.getItem("allEventList")) || [];
 
 // EVENT LISTENERS
 createNewEventBtn.addEventListener('click', () => {
@@ -66,10 +64,10 @@ function createNewEvent() {
     description: eventDescription.value,
     type: eventType.value
   }
-  new Date(newEvent.initialDate) < new Date() ? expiredEventList.push(newEvent) : eventList.push(newEvent);
+  eventList.push(newEvent);
+  // new Date(newEvent.initialDate) < new Date() ? expiredEventList.push(newEvent) : eventList.push(newEventList);
 
-  localStorage.setItem('previousEvent', JSON.stringify(expiredEventList));
-  localStorage.setItem('futureEvent', JSON.stringify(eventList));
+  localStorage.setItem("allEventList", JSON.stringify(eventList));
 
   eventTitle.value = '';
   eventIntialDate.value = '';
