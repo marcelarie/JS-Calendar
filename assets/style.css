@@ -82,6 +82,11 @@ header {
 .btn-form:hover {
     background: #666;
 }
+.btn-form[disabled],
+.btn-form[disabled]:hover {
+    background: #aaa;
+    cursor: not-allowed;
+}
 .close {
     position: absolute;
     top: 1em;

@@ -29,10 +29,16 @@ createNewEventBtn.addEventListener('click', () => {
   createNewEventForm.addEventListener('click', (e) => {
     if (e.target.id == 'create-new-event') createNewEventForm.classList.add('hide');
   })
+  closeFormBtn.addEventListener('click', () => {
+    createNewEventForm.classList.add('hide');
+  })
+  cancelEventBtn.addEventListener('click', () => {
+    createNewEventForm.classList.add('hide');
+  })
 })
 
-closeFormBtn.addEventListener('click', () => {
-  createNewEventForm.classList.add('hide');
+document.getElementById('event-form').addEventListener('change', () => {
+  if (eventTitle.value !== '' && eventIntialDate.value !== '') saveEventBtn.disabled = false;
 })
 
 eventEndDateCheckbox.addEventListener('change', () => {
@@ -43,11 +49,8 @@ reminderCheckbox.addEventListener('change', () => {
   reminderDate.classList.toggle('hide');
 })
 
-cancelEventBtn.addEventListener('click', () => {
-  createNewEventForm.classList.add('hide');
-})
-
-saveEventBtn.addEventListener('click', () => {
+saveEventBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   newEvent = {
     title: eventTitle.value,
     initialDate: eventIntialDate.value,
@@ -57,4 +60,5 @@ saveEventBtn.addEventListener('click', () => {
     type: eventType.value
   }
   eventList.push(newEvent);
+  console.log(eventList);
 })
