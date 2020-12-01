@@ -53,6 +53,7 @@ reminderCheckbox.addEventListener('change', () => {
 
 saveEventBtn.addEventListener('click', (e) => {
   e.preventDefault();
+
   newEvent = {
     title: eventTitle.value,
     initialDate: eventIntialDate.value,
@@ -62,6 +63,17 @@ saveEventBtn.addEventListener('click', (e) => {
     type: eventType.value
   }
   new Date(newEvent.initialDate) < new Date() ? expiredEventList.push(newEvent) : eventList.push(newEvent);
+
+  localStorage.setItem('previousEvent', JSON.stringify(expiredEventList));
+  localStorage.setItem('futureEvent', JSON.stringify(eventList));
+
+  eventTitle.value = '';
+  eventIntialDate.value = '';
+  eventEndDateValue.value = '';
+  reminderDateValue.value = '';
+  eventDescription.value = '';
+  eventType.value = '';
+
   createNewEventForm.classList.add('hide');
 })
 
