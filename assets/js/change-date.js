@@ -6,22 +6,38 @@ leftArrow.addEventListener('click', () => {
     removeDays();
     changePastMonth();
 });
-rightArrow.addEventListener('click', changeNextMonth);
+rightArrow.addEventListener('click', () => {
+    removeDays();
+    changeNextMonth();
+});
 
 function removeDays() {
     calendarDaysDiv.innerHTML = '';
-    if ( actualMonth === 1 ) {
+    howManyPastDays = 0;
+}
+function changePastMonth() {
+    if ( actualMonth <= 1 ) {
         actualMonth = 12;
         actualYear--;
     } else {
         actualMonth--;
     }
-}
-function changePastMonth() {
+    date = new Date(actualYear,actualMonth - 1);
+    numberOfDaysMonth = new Date(actualYear, actualMonth, 0).getDate();
     showActualTitle();
     startDayMonth();
     printDaysMonth();
     endDayMonth();
 }
 function changeNextMonth() {
+    if ( actualMonth >= 12 ) {
+        actualMonth = 1;
+        actualYear++;
+    } else {
+        actualMonth++;
+    }
+    showActualTitle();
+    startDayMonth();
+    printDaysMonth();
+    endDayMonth();
 }
