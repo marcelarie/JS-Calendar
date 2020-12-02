@@ -57,26 +57,10 @@ saveEventBtn.addEventListener('click', (e) => {
   howManyPastDays = 0;
   startDayMonth();
   printDaysMonth();
+  eventListenerCreateEvent();
   endDayMonth();
 })
 
-createNewEventOnDayDiv.forEach(button => { 
-    button.addEventListener('click', () => {
-        createNewEventForm.classList.remove('hide');
-        document.addEventListener('keydown', (e) => {
-            if (e.key == 'Escape') createNewEventForm.classList.add('hide');
-        })
-        createNewEventForm.addEventListener('click', (e) => {
-            if (e.target.id == 'create-new-event') createNewEventForm.classList.add('hide');
-        })
-        closeFormBtn.addEventListener('click', () => {
-            createNewEventForm.classList.add('hide');
-        })
-        cancelEventBtn.addEventListener('click', () => {
-            createNewEventForm.classList.add('hide');
-        })
-    })
-});
 
 function createNewEvent() {
   newEvent = {

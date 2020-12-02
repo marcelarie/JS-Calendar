@@ -299,7 +299,6 @@ header {
 }
 .calendar__days__number:hover > .createEventButton{
     display: inline;
-    z-index: +1;
 }
 #createEventButton {
     margin-top: 2px;
