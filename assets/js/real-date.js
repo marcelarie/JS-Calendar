@@ -1,6 +1,9 @@
 let date = new Date();
 let actualYear = date.getFullYear();
+let actualYearSave = actualYear.valueOf();
 let actualMonth = date.getMonth() + 1;
+let actualMonthSave = actualMonth.valueOf();
+let actualDay = date.getDay() -1;
 const pastMonth = date.getMonth();
 const monthsArray = {01: 'January', 02: 'February', 03: 'March', 04: 'April', 05: 'May', 06: 'June', 07: 'July', 08: 'August', 09: 'September', 10: 'October', 11: 'November', 12: 'December', }
 let numberOfDaysMonth = new Date(actualYear, actualMonth, 0).getDate();
@@ -25,7 +28,7 @@ function printDaysMonth() {
     for (let day = 1; day <= numberOfDaysMonth; day++) {
         let dayDiv = document.createElement('div');
         dayDiv.classList.add('calendar__days__number')
-        if ( day === date.getDate()) {
+        if ( day == actualDay && htmlMonth.textContent == monthsArray[actualMonthSave].valueOf() && actualYearSave == parseFloat(htmlYear.textContent)) {
             dayDiv.classList.add('custom__color__today')
         } 
         dayDiv.textContent = day;
