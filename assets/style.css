@@ -276,9 +276,7 @@ header {
     align-items: flex-end;
 }
 .event__card__btn-delete {
-    background: red;
-    border: none;
-    padding: .5em;
+    color: red;
 }
 
 /*Custom color today*/

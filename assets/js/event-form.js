@@ -39,6 +39,9 @@ createNewEventBtn.addEventListener('click', () => {
 
 document.getElementById('event-form').addEventListener('change', () => {
   if (eventTitle.value !== '' && eventIntialDate.value !== '') saveEventBtn.disabled = false;
+  if (eventEndDateCheckbox.checked) {
+    if (eventEndDateValue.value < eventIntialDate.value) saveEventBtn.disabled = true;
+  }
 })
 
 eventEndDateCheckbox.addEventListener('change', () => {
