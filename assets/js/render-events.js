@@ -1,4 +1,4 @@
-// HTML 
+// HTML
 let currentDayOfTheMonth = document.querySelectorAll('.calendar__days__number');
 let eventArray = [];
 

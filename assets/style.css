@@ -36,20 +36,22 @@
     box-sizing: border-box;
 }
 /*GFONTS*/
-/*font-family: 'Mukta', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 /* GENERAL */
+body {
+    font-family: 'Mukta', sans-serif;
+}
 .hide,
 .event__card.hide {
     display: none;
 }
+
 /*Header*/
 header {
     display: flex;
     flex-direction: row;
     background-color: grey;
     padding: 0.5em;
-    font-family: 'Mukta', sans-serif;
     font-size: 1.2rem;
     color: whitesmoke;
     align-items: center;
@@ -67,6 +69,7 @@ header {
 .material-icons:hover {
     color: #444;
 }
+
 /*Create-Event-Form*/
 .create-event {
     width: 100vw;
@@ -138,13 +141,13 @@ header {
 .close:hover .icon-close {
     display: none;
 }
+
 /*Calendar*/
 .calendar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Mukta', sans-serif;
 }
 .calendar__title {
     display: flex;

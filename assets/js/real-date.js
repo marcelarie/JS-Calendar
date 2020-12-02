@@ -16,8 +16,8 @@ let howManyPastDays = 0; // to count the days printed before the actual month
 // HTML Variables.
 const htmlYear = document.getElementById('calendar__title__year');
 const htmlMonth = document.getElementById('calendar__title__month');
-const calendarDaysDiv = document.getElementById('calendar__days__number')
-const calendarDaysDivPast = document.querySelector('.calendar__days__number__past')
+const calendarDaysDiv = document.getElementById('calendar__days__number');
+const calendarDaysDivPast = document.querySelector('.calendar__days__number__past');
 
 // Show the actual year on the month title.
 function showActualTitle() {
@@ -29,10 +29,10 @@ function showActualTitle() {
 function printDaysMonth() {
     for (let day = 1; day <= numberOfDaysMonth; day++) {
         let dayDiv = document.createElement('div');
-        dayDiv.classList.add('calendar__days__number')
+        dayDiv.classList.add('calendar__days__number');
         if ( day == actualDay && htmlMonth.textContent == monthsArray[actualMonthSave].valueOf() && actualYearSave == parseFloat(htmlYear.textContent)) {
-            dayDiv.classList.add('custom__color__today')
-        } 
+            dayDiv.classList.add('custom__color__today');
+        }
         dayDiv.textContent = day;
         calendarDaysDiv.appendChild(dayDiv);
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
@@ -48,11 +48,11 @@ function printDaysMonth() {
                             let div = document.createElement('div');
                             div.classList.add('calendar__event');
                             div.id = currentEvents[currentEvent].initialDate;
-                            if ( formatedDate != formatedEventDate ) { 
-                                    div.classList.add('custom__color__before');
-                            } 
+                            if ( formatedDate != formatedEventDate ) {
+                                div.classList.add('custom__color__before');
+                            }
                             if ( formatedDate == formatedEventDate && eventDay < actualDay ) {
-                                    div.classList.add('custom__color__before');
+                                div.classList.add('custom__color__before');
                             }
                             div.textContent = currentEvents[currentEvent].title;
                             dayDiv.appendChild(div);
@@ -70,8 +70,8 @@ function printDaysMonthPast(a) {
     let lastDayPastMonth = new Date(actualYear, pastMonth, 0).getDate();
     for (let i = 0; i < a; i++) {
         let dayDivPast = document.createElement('div');
-        dayDivPast.classList.add(`calendar__days__number__past`)
-        dayDivPast.classList.add(`past__month__days${i}`) // creates a second class to differentiate each div
+        dayDivPast.classList.add(`calendar__days__number__past`);
+        dayDivPast.classList.add(`past__month__days${i}`); // creates a second class to differentiate each div
         switch (a) {
             case 1:
                 dayDivPast.textContent = lastDayPastMonth;
@@ -152,9 +152,7 @@ function printDaysMonthPast(a) {
         }
         calendarDaysDiv.appendChild(dayDivPast)
     }
-
 }
-
 
 // Show start day of the month.
 function startDayMonth() {
@@ -188,14 +186,14 @@ function endDayMonth() {
 function printDaysMonthNext(a) {
     for (let i = 0; i < a; i++) {
         let dayDivNext = document.createElement('div');
-        dayDivNext.classList.add(`calendar__days__number__next`)
+        dayDivNext.classList.add(`calendar__days__number__next`);
         dayDivNext.textContent = i + 1;
         calendarDaysDiv.appendChild(dayDivNext);
     }
 }
 
-//              loads each function in order on the page load
-//              1*                 2*               3*                4* 
+// loads each function in order on the page load
+//              1*                 2*               3*                4*
 window.onload = showActualTitle(); startDayMonth(); printDaysMonth(); endDayMonth();
 
 

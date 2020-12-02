@@ -52,7 +52,7 @@ reminderCheckbox.addEventListener('change', () => {
 saveEventBtn.addEventListener('click', (e) => {
   e.preventDefault();
   createNewEvent();
-  calendarDaysDiv.innerHTML = '' 
+  calendarDaysDiv.innerHTML = '';
   howManyPastDays = 0;
   startDayMonth();
   printDaysMonth();
