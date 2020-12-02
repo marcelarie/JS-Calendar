@@ -231,3 +231,7 @@ header {
 .custom__color__today {
     background-color: var(--gruvbox-yellow);
 }
+/*Custom color events older than today*/
+.custom__color__before {
+    background-color: var(--gruvbox-gray);
+}
