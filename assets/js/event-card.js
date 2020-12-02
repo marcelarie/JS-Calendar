@@ -24,9 +24,26 @@ calendarTextElement.addEventListener('click', (e) => {
       <p class="event__card__body__details">Type: ${targetEvent[0].type}</p>
     `;
   }
+
+  deleteEventBtn.addEventListener('click', () => {
+    eventDetails.forEach(el => {
+      if (el.initialDate === e.target.id ) {
+        console.log(el);
+        calendarDaysDiv.innerHTML = '';
+        howManyPastDays = 0;
+        startDayMonth();
+        printDaysMonth();
+        endDayMonth();
+        eventCardTextElement.classList.add('hide');
+      }
+    })
+
+  })
+
   closeEventCardBtn.addEventListener('click', () => {
     eventCardTextElement.classList.add('hide');
   })
+
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       eventCardTextElement.classList.add('hide');
