@@ -38,22 +38,24 @@ function printDaysMonth() {
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
         if (currentEvents) {
             for (let currentEvent = 0; currentEvent < currentEvents.length; currentEvent++) {
-                let eventYear = currentEvents[currentEvent].initialDate.substr(0,4);
-                let eventMonth = currentEvents[currentEvent].initialDate.substr(5).substr(0,2);
+                let eventYear = parseFloat(currentEvents[currentEvent].initialDate.substr(0,4));
+                let eventMonth = parseFloat(currentEvents[currentEvent].initialDate.substr(5).substr(0,2));
                 let eventDay = parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2));
-                let formatedEventDate = parseFloat(eventMonth)+ parseFloat(eventYear);
                 if ( eventYear == actualYear) {
                     if ( eventMonth == actualMonth) {
                         if (day === eventDay ) {
                             let div = document.createElement('div');
                             div.classList.add('calendar__event');
+                            if ( eventYear < actualYearSave ) {
+                                div.classList.add('custom__color__before');
+                            } 
+                            if ( eventMonth < actualMonthSave && actualYear <= actualYearSave ) {
+                                div.classList.add('custom__color__before');
+                            } 
+                            if ( actualDay > eventDay ) {
+                                div.classList.add('custom__color__before');
+                            } 
                             div.id = currentEvents[currentEvent].initialDate;
-                            if ( formatedDate != formatedEventDate ) {
-                                div.classList.add('custom__color__before');
-                            }
-                            if ( formatedDate == formatedEventDate && eventDay < actualDay ) {
-                                div.classList.add('custom__color__before');
-                            }
                             div.textContent = currentEvents[currentEvent].title;
                             dayDiv.appendChild(div);
                         }
