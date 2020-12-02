@@ -15,6 +15,7 @@ const eventDescription = document.getElementById('description');
 const eventType = document.getElementById('type-event');
 const saveEventBtn = document.getElementById('create-event-btn');
 const cancelEventBtn = document.getElementById('cancel-event-btn');
+const createNewEventOnDayDiv = document.querySelectorAll('.createEventButton')
 
 // VARIABLES
 let newEvent = {};
@@ -59,7 +60,24 @@ saveEventBtn.addEventListener('click', (e) => {
   endDayMonth();
 })
 
-// FUNCTIONS
+createNewEventOnDayDiv.forEach(button => { 
+    button.addEventListener('click', () => {
+        createNewEventForm.classList.remove('hide');
+        document.addEventListener('keydown', (e) => {
+            if (e.key == 'Escape') createNewEventForm.classList.add('hide');
+        })
+        createNewEventForm.addEventListener('click', (e) => {
+            if (e.target.id == 'create-new-event') createNewEventForm.classList.add('hide');
+        })
+        closeFormBtn.addEventListener('click', () => {
+            createNewEventForm.classList.add('hide');
+        })
+        cancelEventBtn.addEventListener('click', () => {
+            createNewEventForm.classList.add('hide');
+        })
+    })
+});
+
 function createNewEvent() {
   newEvent = {
     title: eventTitle.value,
