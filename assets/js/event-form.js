@@ -60,7 +60,6 @@ saveEventBtn.addEventListener('click', (e) => {
   howManyPastDays = 0;
   startDayMonth();
   printDaysMonth();
-  eventListenerCreateEvent();
   endDayMonth();
 })
 

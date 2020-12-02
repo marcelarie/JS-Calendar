@@ -5,14 +5,11 @@ const closeEventCardBtn = document.getElementById('close-event-icon');
 const eventCardDetailsTextElement = document.getElementById('event-details');
 const deleteEventBtn = document.getElementById('delete-event-btn');
 
-// VARIABLES
-let eventDetails = JSON.parse(localStorage.getItem("allEventList"));
-
 // EVENT LISTENERS
 calendarTextElement.addEventListener('click', (e) => {
   if (e.target.classList.contains('calendar__event')) {
     eventCardTextElement.classList.remove('hide');
-    let targetEvent = eventDetails.filter(el => el.initialDate === e.target.id);
+    let targetEvent = eventList.filter(el => el.initialDate === e.target.id);
     eventCardDetailsTextElement.innerHTML = `
       <p class="event__card__body__details">Title: ${targetEvent[0].title}</p>
       <p class="event__card__body__details">Initial date: ${targetEvent[0].initialDate}</p>
@@ -26,18 +23,8 @@ calendarTextElement.addEventListener('click', (e) => {
   }
 
   deleteEventBtn.addEventListener('click', () => {
-    eventDetails.forEach(el => {
-      if (el.initialDate === e.target.id ) {
-        console.log(el);
-        calendarDaysDiv.innerHTML = '';
-        howManyPastDays = 0;
-        startDayMonth();
-        printDaysMonth();
-        endDayMonth();
-        eventCardTextElement.classList.add('hide');
-      }
-    })
-
+    eventCardTextElement.classList.remove('hide');
+    deleteItemFromLocalStorage(e);
   })
 
   closeEventCardBtn.addEventListener('click', () => {
@@ -50,3 +37,22 @@ calendarTextElement.addEventListener('click', (e) => {
     }
   })
 })
+
+
+
+// FUNCTIONS
+function deleteItemFromLocalStorage(e) {
+  deleteEventBtn.removeEventListener('click', deleteItemFromLocalStorage);
+  eventList.forEach((el, i) => {
+    if (el.initialDate === e.target.id) {
+      eventList.splice(i, 1);
+      localStorage.setItem('allEventList', JSON.stringify(eventList));
+      calendarDaysDiv.innerHTML = '';
+      howManyPastDays = 0;
+      startDayMonth();
+      printDaysMonth();
+      endDayMonth();
+      eventCardTextElement.classList.add('hide');
+    }
+  })
+}
