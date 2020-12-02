@@ -76,7 +76,7 @@
         <div class="calendar">
             <div class="calendar__title">
                 <span id="arrow-left" class="material-icons"> arrow_left </span>
-                <h3><span id="calendar__title__month">Noviembre</span> <span id="calendar__title__year">2x2x</span></h3>
+                <h3><span id="calendar__title__month"></span> <span id="calendar__title__year"></span></h3>
                 <span id="arrow-right" class="material-icons"> arrow_right </span>
             </div>
             <div class="calendar__body">
@@ -90,6 +90,17 @@
                         <div class="calendar__days__week">Friday</div>
                         <div class="calendar__days__week">Saturday</div>
                     </div>
+                    <div id="event-card" class="event__card hide">
+                        <div class="event__card__close">
+                            <i class="material-icons event__icon-close">close</i>
+                            <i id="close-event-icon" class="material-icons event__icon-cancel">cancel</i>
+                        </div>
+                        <div id="event-details" class="event__card__body"></div>
+                        <div class="event__card__footer">
+                            <button>Edit</button>
+                            <button id="delete-event-btn" class="event__card__btn-delete">Delete</button>
+                        </div>
+                    </div>
                     <div id="calendar__days__number"></div>
                 </div>
             </div>
@@ -99,6 +110,6 @@
     <script src="assets/js/render-events.js" type="text/javascript"></script>
     <script src="assets/js/change-date.js" type="text/javascript"></script>
     <script src="assets/js/event-form.js" type="text/javascript"></script>
-    <script src="assets/js/custom-day-color.js" type="text/javascript"></script>
+    <script src="assets/js/event-card.js"></script>
 </body>
 </html>

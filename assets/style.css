@@ -36,19 +36,22 @@
     box-sizing: border-box;
 }
 /*GFONTS*/
-/*font-family: 'Mukta', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
 /* GENERAL */
-.hide {
+body {
+    font-family: 'Mukta', sans-serif;
+}
+.hide,
+.event__card.hide {
     display: none;
 }
+
 /*Header*/
 header {
     display: flex;
     flex-direction: row;
     background-color: grey;
     padding: 0.5em;
-    font-family: 'Mukta', sans-serif;
     font-size: 1.2rem;
     color: whitesmoke;
     align-items: center;
@@ -66,6 +69,7 @@ header {
 .material-icons:hover {
     color: #444;
 }
+
 /*Create-Event-Form*/
 .create-event {
     width: 100vw;
@@ -137,13 +141,13 @@ header {
 .close:hover .icon-close {
     display: none;
 }
+
 /*Calendar*/
 .calendar {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Mukta', sans-serif;
 }
 .calendar__title {
     display: flex;
@@ -227,6 +231,56 @@ header {
     font-weight: bold;
 }
 
+/* EVENT-CARD */
+.event__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    height: 300px;
+    width: 200px;
+    background: rgba(0,0,0,.5);
+    color: white;
+}
+.event__card__close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    color: white;
+    cursor: pointer;
+    transition: color 200ms ease-in-out;
+}
+.event__card__close .event__icon-cancel {
+    display: none;
+}
+.event__card__close:hover .event__icon-cancel {
+    display: block;
+}
+.event__card__close:hover .event__icon-close {
+    display: none;
+}
+.event__card__body {
+    margin-top: 2em;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+}
+.event__card__footer {
+    align-items: flex-end;
+}
+.event__card__btn-delete {
+    background: red;
+    border: none;
+    padding: .5em;
+}
+
 /*Custom color today*/
 .custom__color__today {
     background-color: var(--gruvbox-yellow);
@@ -235,3 +289,4 @@ header {
 .custom__color__before {
     background-color: var(--gruvbox-gray);
 }
+
