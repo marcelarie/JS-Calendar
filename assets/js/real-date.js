@@ -37,6 +37,7 @@ function printDaysMonth() {
                         if (day === parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2))) {
                             let div = document.createElement('div');
                             div.classList.add('calendar__event');
+                            div.id = currentEvents[currentEvent].initialDate;
                             div.textContent = currentEvents[currentEvent].title;
                             dayDiv.appendChild(div)
                         }
