@@ -63,8 +63,10 @@ saveEventBtn.addEventListener('click', (e) => {
 function createNewEvent() {
   newEvent = {
     title: eventTitle.value,
-    initialDate: eventIntialDate.value,
-    endDate: eventEndDateValue.value,
+    initialDate: eventIntialDate.value.slice(0,10),
+    initialTime: eventIntialDate.value.slice(11,),
+    endDate: eventEndDateValue.value.slice(0,10),
+    endTime: eventEndDateValue.value.slice(11,),
     reminder: reminderDateValue.value,
     description: eventDescription.value,
     type: eventType.value

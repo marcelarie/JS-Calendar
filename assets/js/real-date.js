@@ -47,6 +47,7 @@ function printDaysMonth() {
                         if (day === eventDay ) {
                             let div = document.createElement('div');
                             div.classList.add('calendar__event');
+                            div.id = currentEvents[currentEvent].initialDate;
                             if ( formatedDate != formatedEventDate ) { 
                                     div.classList.add('custom__color__before');
                             } 
