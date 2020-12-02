@@ -25,6 +25,9 @@ function printDaysMonth() {
     for (let day = 1; day <= numberOfDaysMonth; day++) {
         let dayDiv = document.createElement('div');
         dayDiv.classList.add('calendar__days__number')
+        if ( day === date.getDate()) {
+            dayDiv.classList.add('custom__color__today')
+        } 
         dayDiv.textContent = day;
         calendarDaysDiv.appendChild(dayDiv);
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
@@ -47,7 +50,6 @@ function printDaysMonth() {
         }
     }
 }
-// see if are events for the div
 
 // Print the days of the past/future month on the body grid.
 function printDaysMonthPast(a) {
