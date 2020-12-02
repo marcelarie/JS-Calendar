@@ -34,6 +34,26 @@ function printDaysMonth() {
             dayDiv.classList.add('custom__color__today');
         }
         dayDiv.textContent = day;
+        let createEventButton = document.createElement('button');
+        createEventButton.classList.add('createEventButton')
+        createEventButton.innerHTML = '<span class="material-icons" id="createEventButton"> add_circle_outline </span>'
+        dayDiv.appendChild(createEventButton)
+        // Adding functionality to event button on day hover.
+        createEventButton.addEventListener('click', () => {
+            createNewEventForm.classList.remove('hide');
+            document.addEventListener('keydown', (e) => {
+                if (e.key == 'Escape') createNewEventForm.classList.add('hide');
+            })
+            createNewEventForm.addEventListener('click', (e) => {
+                if (e.target.id == 'create-new-event') createNewEventForm.classList.add('hide');
+            })
+            closeFormBtn.addEventListener('click', () => {
+                createNewEventForm.classList.add('hide');
+            })
+            cancelEventBtn.addEventListener('click', () => {
+                createNewEventForm.classList.add('hide');
+            })
+        });
         calendarDaysDiv.appendChild(dayDiv);
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
         if (currentEvents) {
@@ -193,6 +213,7 @@ function printDaysMonthNext(a) {
         calendarDaysDiv.appendChild(dayDivNext);
     }
 }
+
 
 // loads each function in order on the page load
 //              1*                 2*               3*                4*

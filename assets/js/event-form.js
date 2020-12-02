@@ -15,6 +15,7 @@ const eventDescription = document.getElementById('description');
 const eventType = document.getElementById('type-event');
 const saveEventBtn = document.getElementById('create-event-btn');
 const cancelEventBtn = document.getElementById('cancel-event-btn');
+const createNewEventOnDayDiv = document.querySelectorAll('.createEventButton')
 
 // VARIABLES
 let newEvent = {};
@@ -59,10 +60,11 @@ saveEventBtn.addEventListener('click', (e) => {
   howManyPastDays = 0;
   startDayMonth();
   printDaysMonth();
+  eventListenerCreateEvent();
   endDayMonth();
 })
 
-// FUNCTIONS
+
 function createNewEvent() {
   newEvent = {
     title: eventTitle.value,
