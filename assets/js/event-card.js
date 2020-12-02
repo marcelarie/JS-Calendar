@@ -11,14 +11,14 @@ calendarTextElement.addEventListener('click', (e) => {
     eventCardTextElement.classList.remove('hide');
     let targetEvent = eventList.filter(el => el.initialDate === e.target.id);
     eventCardDetailsTextElement.innerHTML = `
-      <p class="event__card__body__details">Title: ${targetEvent[0].title}</p>
-      <p class="event__card__body__details">Initial date: ${targetEvent[0].initialDate}</p>
-      <p class="event__card__body__details">Initial time: ${targetEvent[0].initialTime}</p>
-      <p class="event__card__body__details">End date: ${targetEvent[0].endDate}</p>
-      <p class="event__card__body__details">End time: ${targetEvent[0].endTime}</p>
-      <p class="event__card__body__details">Reminder: ${targetEvent[0].reminder}</p>
-      <p class="event__card__body__details">Description: ${targetEvent[0].description}</p>
-      <p class="event__card__body__details">Type: ${targetEvent[0].type}</p>
+      <p class="event__card__body__details">Title: <span>${targetEvent[0].title}</span></p>
+      <p class="event__card__body__details">Initial date: <span>${targetEvent[0].initialDate}</span></p>
+      <p class="event__card__body__details">Initial time: <span>${targetEvent[0].initialTime}</span></p>
+      <p class="event__card__body__details">End date: <span>${targetEvent[0].endDate}</span></p>
+      <p class="event__card__body__details">End time: <span>${targetEvent[0].endTime}</span></p>
+      <p class="event__card__body__details">Reminder: <span>${targetEvent[0].reminder}</span></p>
+      <p class="event__card__body__details">Description: <span>${targetEvent[0].description}</span></p>
+      <p class="event__card__body__details">Type: <span>${targetEvent[0].type}</span></p>
     `;
   }
 

@@ -40,6 +40,8 @@
 /* GENERAL */
 body {
     font-family: 'Mukta', sans-serif;
+    background: var(--gruvbox-background);
+    color: var(--gruvbox-green);
 }
 .hide,
 .event__card.hide {
@@ -50,10 +52,10 @@ body {
 header {
     display: flex;
     flex-direction: row;
-    background-color: grey;
-    padding: 0.5em;
-    font-size: 1.2rem;
-    color: whitesmoke;
+    background-color: var(--gruvbox-background);
+    padding: 0.5em 4.5em;
+    font-size: .7rem;
+    color: var(--gruvbox-green);
     align-items: center;
 }
 #headerTitle {
@@ -62,12 +64,12 @@ header {
 }
 .material-icons {
     font-size: 36px;
-    color: #333;
+    color: var(--gruvbox-green);
     cursor: pointer;
     transition: transform 200ms ease-in-out;
 }
 .material-icons:hover {
-    color: #444;
+    color: var(--gruvbox-light-green);
 }
 
 /*Create-Event-Form*/
@@ -81,7 +83,7 @@ header {
 .create-event__container {
     margin: 5em;
     padding: 1em;
-    background: #fff;
+    background: var(--gruvbox-background);
     opacity: 1;
     position: relative;
     display: flex;
@@ -96,7 +98,10 @@ header {
     outline: none;
 }
 .create-event__container > form > input {
-    padding-left: .25em;
+    padding: .25em;
+    margin-left: .25em;
+    border: none;
+    border-radius: 5px;
 }
 .create-event__container > form > div {
     display: flex;
@@ -109,27 +114,33 @@ header {
     width: 100px;
     height: 35px;
     margin-left: .5em;
-    background: #333;
-    color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    background: var(--gruvbox-green);
+    color: var(--gruvbox-background);
     text-transform: uppercase;
     font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: .5px;
     cursor: pointer;
+    outline: none;
     transition: background 200ms ease-in-out;
 }
 .btn-form:hover {
-    background: #666;
+    background: var(--gruvbox-light-green);
 }
 .btn-form[disabled],
 .btn-form[disabled]:hover {
-    background: #aaa;
+    background: var(--gruvbox-fg);
     cursor: not-allowed;
 }
 .close {
     position: absolute;
     top: 1em;
     right: 1em;
-    color: #333;
+    color: var(--gruvbox-green);
     cursor: pointer;
+    outline: none;
     transition: color 200ms ease-in-out;
 }
 .close .icon-cancel {
@@ -151,24 +162,30 @@ header {
 }
 .calendar__title {
     display: flex;
-    font-size: 2.5rem;
-    background-color: darkgrey;
-    color: white;
+    background-image: linear-gradient(to right, var(--gruvbox-light-green), var(--gruvbox-green));
+    /* background-color: var(--gruvbox-light-green); */
+    color: var(--gruvbox-background);
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
-#arrow-left {
-    margin-left: 0.5em;
-    font-size: 50px;
-    color: whitesmoke;
+.calendar__title > h3 {
+    font-size: 2rem;
+    font-weight: 300;
 }
+#arrow-left,
 #arrow-right {
-    margin-right: 0.5em;
+    margin: 0 .9em;
     font-size: 50px;
-    color: whitesmoke;
+    color: var(--gruvbox-blue);
+    cursor: pointer;
+    outline: none;
+    transition: color 200ms ease-in-out;
 }
-
+#arrow-left:hover,
+#arrow-right:hover {
+    color: var(--gruvbox-light-blue);
+}
 /*Calendar body grid*/
 .calendar__body {
     width: 100%;
@@ -180,43 +197,43 @@ header {
     text-align: center;
 }
 .calendar__days__week {
-    font-size: 1.5rem;
-    border: 1.5px solid lightgray;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: .5em;
+    color: var(--gruvbox-fg);
+    /* border: 1px solid var(--gruvbox-light-yellow); */
 }
 .calendar__days__number {
-    border: 1px solid lightgray;
+    /* border: 1px solid var(--gruvbox-light-yellow); */
     width: 100%;
     height: 16.65vh;
     font-weight: 500;
     font-size: 1.5em;
     display: flex;
     flex-direction: column;
+    padding-top: 1px;
 }
-.calendar__days__number__past {
-    font-size: 1.5em;
-    border: 1px solid lightgray;
-    width: 100%;
-    height: 16.65vh;
-    font-weight: 500;
-    display: flex;
-    flex-direction: column;
-    background-color:darkgray;
+.calendar__days__number:hover {
+    border: 1px solid var(--gruvbox-blue);
 }
+.calendar__days__number__past,
 .calendar__days__number__next {
     font-size: 1.5em;
-    border: 1px solid lightgray;
+    /* border: 1px solid var(--gruvbox-light-yellow); */
     width: 100%;
     height: 16.65vh;
     font-weight: 500;
     display: flex;
     flex-direction: column;
-    background-color:darkgray;
+    background-color:var(--gruvbox-light-blue);
+    color: var(--gruvbox-fg);
 }
 .calendar__event {
-    background-color: lightgreen;
+    background-color: var(--gruvbox-yellow);
+    color: var(--gruvbox-background);
     border-radius: 0.2rem;
     height: 100%;
-    border: 2px solid white;
+    border: 1px solid var(--gruvbox-fg);
     font-size: 1.1rem;
     position: relative;
     cursor: pointer;
@@ -230,7 +247,36 @@ header {
 .calendar__event__time {
     font-weight: bold;
 }
-
+/*Custom color today*/
+.custom__color__today {
+    border: 1px solid var(--gruvbox-light-red);
+    color: var(--gruvbox-light-red);
+}
+/*Custom color events older than today*/
+.custom__color__before {
+    background-color: var(--gruvbox-purple);
+}
+/*Create event button*/
+.createEventButton {
+    background: none;
+    border: none;
+    outline: none;
+    display: none;
+    position: absolute;
+}
+.calendar__days__number:hover > .createEventButton{
+    display: inline;
+}
+#createEventButton {
+    margin: 2px 0;
+    color: var(--gruvbox-blue);
+    font-size: 24px;
+    float: left;
+    transition: color 200ms ease-in-out;
+}
+#createEventButton:hover {
+    color: var(--gruvbox-light-blue);
+}
 /* EVENT-CARD */
 .event__card {
     display: flex;
@@ -244,16 +290,15 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-    height: 300px;
-    width: 200px;
+    min-width: 200px;
     background: rgba(0,0,0,.5);
-    color: white;
+    color: var(--gruvbox-fg);
 }
 .event__card__close {
     position: absolute;
     top: 1em;
     right: 1em;
-    color: white;
+    color: var(--gruvbox-fg);
     cursor: pointer;
     transition: color 200ms ease-in-out;
 }
@@ -271,37 +316,30 @@ header {
     align-items: center;
     justify-content: center;
     height: auto;
+    width: 100%;
+}
+.event__card__body__details {
+    margin: .5em 0;
+    cursor: pointer;
+    transition: color 100ms ease-in-out;
+}
+.event__card__body__details:hover {
+    color: var(--gruvbox-light-aqua);
+}
+.event__card__body__details > span {
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: var(--gruvbox-light-yellow);
 }
 .event__card__footer {
     align-items: flex-end;
 }
 .event__card__btn-delete {
-    color: red;
+    color: var(--gruvbox-light-red);
 }
-
-/*Custom color today*/
-.custom__color__today {
-    background-color: var(--gruvbox-yellow);
-}
-/*Custom color events older than today*/
-.custom__color__before {
-    background-color: var(--gruvbox-gray);
-}
-/*Create event button*/
-.createEventButton {
-    background: none;
-    border: none;
-    outline: none;
-    position: absolute;
-    display: none;
-}
-.calendar__days__number:hover > .createEventButton{
-    display: inline;
-}
-#createEventButton {
-    margin-top: 2px;
-    color: black;
-    font-size: 25px;
-    float: left;
+i.event__card__btn-delete:hover {
+    color: var(--gruvbox-red);
 }
 
