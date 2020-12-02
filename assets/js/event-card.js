@@ -6,7 +6,7 @@ const eventCardDetailsTextElement = document.getElementById('event-details');
 const deleteEventBtn = document.getElementById('delete-event-btn');
 
 // VARIABLES
-let eventDetails = JSON.parse(localStorage.getItem("allEventList"));
+let eventDetails = JSON.parse(localStorage.getItem("allEventList")) || [];
 
 // EVENT LISTENERS
 calendarTextElement.addEventListener('click', (e) => {
@@ -26,18 +26,8 @@ calendarTextElement.addEventListener('click', (e) => {
   }
 
   deleteEventBtn.addEventListener('click', () => {
-    eventDetails.forEach(el => {
-      if (el.initialDate === e.target.id ) {
-        console.log(el);
-        calendarDaysDiv.innerHTML = '';
-        howManyPastDays = 0;
-        startDayMonth();
-        printDaysMonth();
-        endDayMonth();
-        eventCardTextElement.classList.add('hide');
-      }
-    })
-
+    eventCardTextElement.classList.remove('hide');
+    deleteItemFromLocalStorage(e);
   })
 
   closeEventCardBtn.addEventListener('click', () => {
@@ -50,3 +40,19 @@ calendarTextElement.addEventListener('click', (e) => {
     }
   })
 })
+// FUNCTIONS
+function deleteItemFromLocalStorage(e) {
+  deleteEventBtn.removeEventListener('click', deleteItemFromLocalStorage);
+  eventDetails.forEach((el, i) => {
+    if (el.initialDate === e.target.id) {
+      eventDetails.splice(i, 1);
+      localStorage.setItem('allEventList', JSON.stringify(eventDetails));
+      calendarDaysDiv.innerHTML = '';
+      howManyPastDays = 0;
+      startDayMonth();
+      printDaysMonth();
+      endDayMonth();
+      eventCardTextElement.classList.add('hide');
+    }
+  })
+}
