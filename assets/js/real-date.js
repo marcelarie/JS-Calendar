@@ -1,6 +1,11 @@
 let date = new Date();
 let actualYear = date.getFullYear();
+let actualYearSave = actualYear.valueOf();
 let actualMonth = date.getMonth() + 1;
+let actualMonthSave = actualMonth.valueOf();
+let actualDay = date.getDay() -1;
+let actualDaySave = actualDay.valueOf();
+let formatedDate = actualMonth + actualYear
 const pastMonth = date.getMonth();
 const monthsArray = {01: 'January', 02: 'February', 03: 'March', 04: 'April', 05: 'May', 06: 'June', 07: 'July', 08: 'August', 09: 'September', 10: 'October', 11: 'November', 12: 'December', }
 let numberOfDaysMonth = new Date(actualYear, actualMonth, 0).getDate();
@@ -25,20 +30,31 @@ function printDaysMonth() {
     for (let day = 1; day <= numberOfDaysMonth; day++) {
         let dayDiv = document.createElement('div');
         dayDiv.classList.add('calendar__days__number')
+        if ( day == actualDay && htmlMonth.textContent == monthsArray[actualMonthSave].valueOf() && actualYearSave == parseFloat(htmlYear.textContent)) {
+            dayDiv.classList.add('custom__color__today')
+        } 
         dayDiv.textContent = day;
         calendarDaysDiv.appendChild(dayDiv);
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
         if (currentEvents) {
             for (let currentEvent = 0; currentEvent < currentEvents.length; currentEvent++) {
-                //   v      year of the event   v 
-                if (currentEvents[currentEvent].initialDate.substr(0, 4) == actualYear) {
-                    //   v         month of the event         v 
-                    if (currentEvents[currentEvent].initialDate.substr(5).substr(0, 2) == actualMonth) {
-                        if (day === parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2))) {
+                let eventYear = currentEvents[currentEvent].initialDate.substr(0,4);
+                let eventMonth = currentEvents[currentEvent].initialDate.substr(5).substr(0,2);
+                let eventDay = parseFloat(currentEvents[currentEvent].initialDate.substr(8).substr(0, 2));
+                let formatedEventDate = parseFloat(eventMonth)+ parseFloat(eventYear);
+                if ( eventYear == actualYear) {
+                    if ( eventMonth == actualMonth) {
+                        if (day === eventDay ) {
                             let div = document.createElement('div');
                             div.classList.add('calendar__event');
+                            if ( formatedDate != formatedEventDate ) { 
+                                    div.classList.add('custom__color__before');
+                            } 
+                            if ( formatedDate == formatedEventDate && eventDay < actualDay ) {
+                                    div.classList.add('custom__color__before');
+                            }
                             div.textContent = currentEvents[currentEvent].title;
-                            dayDiv.appendChild(div)
+                            dayDiv.appendChild(div);
                         }
                     }
                     printDaysMonthNext();
@@ -47,7 +63,6 @@ function printDaysMonth() {
         }
     }
 }
-// see if are events for the div
 
 // Print the days of the past/future month on the body grid.
 function printDaysMonthPast(a) {

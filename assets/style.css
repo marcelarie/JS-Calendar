@@ -208,8 +208,6 @@ header {
     flex-direction: column;
     background-color:darkgray;
 }
-.calendar__days__number__num {
-}
 .calendar__event {
     background-color: lightgreen;
     border-radius: 0.2rem;
@@ -227,4 +225,13 @@ header {
 }
 .calendar__event__time {
     font-weight: bold;
+}
+
+/*Custom color today*/
+.custom__color__today {
+    background-color: var(--gruvbox-yellow);
+}
+/*Custom color events older than today*/
+.custom__color__before {
+    background-color: var(--gruvbox-gray);
 }
