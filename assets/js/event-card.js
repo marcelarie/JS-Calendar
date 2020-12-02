@@ -5,14 +5,11 @@ const closeEventCardBtn = document.getElementById('close-event-icon');
 const eventCardDetailsTextElement = document.getElementById('event-details');
 const deleteEventBtn = document.getElementById('delete-event-btn');
 
-// VARIABLES
-let eventDetails = JSON.parse(localStorage.getItem("allEventList")) || [];
-
 // EVENT LISTENERS
 calendarTextElement.addEventListener('click', (e) => {
   if (e.target.classList.contains('calendar__event')) {
     eventCardTextElement.classList.remove('hide');
-    let targetEvent = eventDetails.filter(el => el.initialDate === e.target.id);
+    let targetEvent = eventList.filter(el => el.initialDate === e.target.id);
     eventCardDetailsTextElement.innerHTML = `
       <p class="event__card__body__details">Title: ${targetEvent[0].title}</p>
       <p class="event__card__body__details">Initial date: ${targetEvent[0].initialDate}</p>
@@ -40,13 +37,16 @@ calendarTextElement.addEventListener('click', (e) => {
     }
   })
 })
+
+
+
 // FUNCTIONS
 function deleteItemFromLocalStorage(e) {
   deleteEventBtn.removeEventListener('click', deleteItemFromLocalStorage);
-  eventDetails.forEach((el, i) => {
+  eventList.forEach((el, i) => {
     if (el.initialDate === e.target.id) {
-      eventDetails.splice(i, 1);
-      localStorage.setItem('allEventList', JSON.stringify(eventDetails));
+      eventList.splice(i, 1);
+      localStorage.setItem('allEventList', JSON.stringify(eventList));
       calendarDaysDiv.innerHTML = '';
       howManyPastDays = 0;
       startDayMonth();
