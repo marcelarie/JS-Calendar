@@ -34,6 +34,10 @@ function printDaysMonth() {
             dayDiv.classList.add('custom__color__today');
         }
         dayDiv.textContent = day;
+        let createEventButton = document.createElement('button');
+        createEventButton.classList.add('createEventButton')
+        createEventButton.innerHTML = '<span class="material-icons" id="createEventButton"> add_circle_outline </span>'
+        dayDiv.appendChild(createEventButton)
         calendarDaysDiv.appendChild(dayDiv);
         let currentEvents = JSON.parse(localStorage.getItem('allEventList'));
         if (currentEvents) {

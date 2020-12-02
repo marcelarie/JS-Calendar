@@ -289,4 +289,22 @@ header {
 .custom__color__before {
     background-color: var(--gruvbox-gray);
 }
+/*Create event button*/
+.createEventButton {
+    background: none;
+    border: none;
+    outline: none;
+    position: absolute;
+    display: none;
+}
+.calendar__days__number:hover > .createEventButton{
+    display: inline;
+    z-index: +1;
+}
+#createEventButton {
+    margin-top: 2px;
+    color: black;
+    font-size: 25px;
+    float: left;
+}
 
