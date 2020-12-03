@@ -63,7 +63,7 @@ saveEventBtn.addEventListener('click', (e) => {
   endDayMonth();
 })
 
-
+// FUNCTIONS
 function createNewEvent() {
   newEvent = {
     title: eventTitle.value,
@@ -76,18 +76,20 @@ function createNewEvent() {
     type: eventType.value
   }
   eventList.push(newEvent);
-  // new Date(newEvent.initialDate) < new Date() ? expiredEventList.push(newEvent) : eventList.push(newEventList);
 
   localStorage.setItem("allEventList", JSON.stringify(eventList));
 
   eventTitle.value = '';
   eventIntialDate.value = '';
+  eventEndDateCheckbox.checked = false;
+  eventEndDate.classList.add('hide');
   eventEndDateValue.value = '';
   reminderDateValue.value = '';
+  reminderCheckbox.checked = false;
+  reminderDate.classList.add('hide');
   eventDescription.value = '';
   eventType.value = '';
   saveEventBtn.disabled = true;
-
   createNewEventForm.classList.add('hide');
 }
 
