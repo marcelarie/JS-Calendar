@@ -243,6 +243,10 @@ header {
     font-size: 1.1rem;
     position: relative;
     cursor: pointer;
+    transition: background 150ms ease-in-out;
+}
+.calendar__event:hover {
+    background: var(--gruvbox-light-yellow);
 }
 .calendar__event p {
     position: absolute;
@@ -262,6 +266,9 @@ header {
 /*Custom color events older than today*/
 .custom__color__before {
     background-color: var(--gruvbox-purple);
+}
+.custom__color__before:hover {
+    background: var(--gruvbox-light-purple);
 }
 /*Create event button*/
 .createEventButton {

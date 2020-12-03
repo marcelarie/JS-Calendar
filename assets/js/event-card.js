@@ -9,7 +9,7 @@ const deleteEventBtn = document.getElementById('delete-event-btn');
 calendarTextElement.addEventListener('click', (e) => {
   if (e.target.classList.contains('calendar__event')) {
     eventCardTextElement.classList.remove('hide');
-    let targetEvent = eventList.filter(el => el.initialDate === e.target.id);
+    let targetEvent = eventList.filter(el => el.initialDate === e.target.id && el.title === e.target.textContent);
     eventCardDetailsTextElement.innerHTML = `
       <p class="event__card__body__details">Title: <span>${targetEvent[0].title}</span></p>
       <p class="event__card__body__details">Initial date: <span>${targetEvent[0].initialDate}</span></p>
@@ -38,21 +38,19 @@ calendarTextElement.addEventListener('click', (e) => {
   })
 })
 
-
-
 // FUNCTIONS
 function deleteItemFromLocalStorage(e) {
   deleteEventBtn.removeEventListener('click', deleteItemFromLocalStorage);
   eventList.forEach((el, i) => {
-    if (el.initialDate === e.target.id) {
+    if (el.initialDate === e.target.id && el.title === e.target.textContent) {
       eventList.splice(i, 1);
       localStorage.setItem('allEventList', JSON.stringify(eventList));
+      eventCardTextElement.classList.add('hide');
       calendarDaysDiv.innerHTML = '';
       howManyPastDays = 0;
       startDayMonth();
       printDaysMonth();
       endDayMonth();
-      eventCardTextElement.classList.add('hide');
     }
   })
 }
